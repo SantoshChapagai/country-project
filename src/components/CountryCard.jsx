@@ -14,7 +14,7 @@ const CountryCard = ({ country }) => {
         >
           <Card className="h-100">
             <Card.Body className="d-flex flex-column">
-              <Card.Img src={country.flags.svg} alt={country.name.common} style={{ height: "15rem" }} />
+              <Card.Img src={country.flags.svg} alt={country.name.common} style={{ height: "10rem" }} />
               <Card.Title>{country.name.common}</Card.Title>
               <Card.Subtitle className="mb-5 text-muted">
                 {country.name.official}
@@ -24,7 +24,7 @@ const CountryCard = ({ country }) => {
                 className="flex-grow-1 justify-content-end"
               >
                 {country.languages ? (
-                  <ListGroup.Item style={{ height: "4rem" }}>
+                  <ListGroup.Item style={{ height: "3.5rem" }}>
                     <i className="bi bi-translate me-2"></i>
                     {Object.values(country.languages).join(", ")}
                   </ListGroup.Item>) : (
