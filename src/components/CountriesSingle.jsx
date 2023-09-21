@@ -63,8 +63,15 @@ const CountriesSingle = () => {
   return (
 
     <Container>
+      <h1>{country.capital}</h1>
+      {weather &&
+        <div>{weather.main.temp}C</div>
 
-      <div>Single Country will be here</div>
+      }
+      {weather &&
+        <div>{weather.weather.map((weather) => weather.description)}</div>
+      }
+
 
     </Container>
 
