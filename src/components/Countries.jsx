@@ -16,9 +16,9 @@ const Countries = () => {
   const [search, setSearch] = useState('')
 
 
-  const filteredCountries = countriesList.filter((country) =>
-    country.name.common.toLowerCase().includes(search.toLowerCase())
-  );
+  // const filteredCountries = countriesList.filter((country) =>
+  //   country.name.common.toLowerCase().includes(search.toLowerCase())
+  // );
   console.log("countriesList: ", countriesList);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const Countries = () => {
         </Col>
       </Row>
       <Row xs={2} md={3} lg={4} className=" g-3">
-        {search ? (
+        {/* {search ? (
           filteredCountries.map((country) => {
             return <CountryCard country={country} key={country.name.common} />
           })
@@ -51,7 +51,14 @@ const Countries = () => {
           countriesList.map((country) => {
             return <CountryCard country={country} key={country.name.common} />
           })
-        )}
+        )} */}
+        {countriesList.filter((c) => {
+
+          return c.name.official.toLowerCase().includes(search.toLowerCase());
+        })
+          .map((country) => (
+            <CountryCard key={country.name} country={country} />
+          ))}
       </Row>
     </Container>
   );
