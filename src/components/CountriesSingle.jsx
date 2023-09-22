@@ -97,7 +97,7 @@ const CountriesSingle = () => {
           {!errors && weather && (
             <div>
               <p>
-                Right now it is <strong>{parseInt(weather.main.temp)}</strong> degress in
+                Right now it is <strong>{parseInt(weather.main.temp)}</strong> degrees in
                 <strong> {country.capital}</strong>  and {weather.weather[0].description}
               </p>
               <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].description}`} />

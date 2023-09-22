@@ -57,7 +57,7 @@ const Countries = () => {
           return c.name.official.toLowerCase().includes(search.toLowerCase());
         })
           .map((country) => (
-            <CountryCard key={country.name} country={country} />
+            <CountryCard key={country.name.common} country={country} />
           ))}
       </Row>
     </Container>
