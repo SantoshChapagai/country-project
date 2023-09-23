@@ -1,14 +1,10 @@
 import React from 'react';
-
 import { useEffect } from 'react';
-
 import { Col, Container, Row, Spinner, Button, Carousel, Card } from 'react-bootstrap';
-
 import { useLocation, useNavigate } from 'react-router-dom';
-
 import axios from 'axios';
-
 import { useState } from 'react';
+import Weather from './Weather';
 
 const CountriesSingle = () => {
 
@@ -19,43 +15,16 @@ const CountriesSingle = () => {
   const navigate = useNavigate();
 
 
-
   //State hooks
 
-  const [weather, setWeather] = useState('');
-
-
   const [errors, setError] = useState(false);
-
   const [loading, setLoading] = useState(true);
   const [images, setImages] = useState([]);
-
 
 
   //Destructuring variables
 
   const country = location.state.country;
-
-
-
-  useEffect(() => {
-    if (!country.capital) {
-      setLoading(false)
-      setError(true)
-    } else {
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${country.capital}&units=metric&appid=${process.env.REACT_APP_OPENWEATHER_KEY}`)
-        .catch((error) => {
-          console.log(error)
-          setError(true)
-        })
-        .then((response) => {
-          setWeather(response.data)
-          setLoading(false)
-        })
-
-    }
-
-  }, [country.capital]);
 
 
   useEffect(() => {
@@ -64,14 +33,13 @@ const CountriesSingle = () => {
       .then((response) => {
         if (response.data.hits && response.data.hits.length > 0) {
           setImages(response.data.hits);
+          setLoading(false);
         }
       })
       .catch((error) => {
         setError('Error in fetching data', error);
       });
   }, [country.name.common]);
-
-  console.log("Weather=", weather);
 
   if (loading) {
     return (
@@ -91,7 +59,8 @@ const CountriesSingle = () => {
     <Container>
       <Row className="mt-5">
         <Col>
-          <Carousel>
+
+          {/* <Carousel>
             {images && images.map((image, id) => (
               <Carousel.Item key={id}>
                 <img
@@ -101,23 +70,10 @@ const CountriesSingle = () => {
                 />
               </Carousel.Item>
             ))}
-          </Carousel>
+          </Carousel> */}
         </Col>
         <Col>
-          <h2 className='display-4'>{country.name.common}</h2>
-          <h3>{country.capital}</h3>
-          {errors && (
-            <p>Sorry, we do not have any informationa about this country.</p>
-          )}
-          {!errors && weather && (
-            <div>
-              <p>
-                Right now it is <strong>{parseInt(weather.main.temp)}</strong> degrees in
-                <strong> {country.capital}</strong>  and {weather.weather[0].description}
-              </p>
-              <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].description}`} />
-            </div>
-          )}
+          <Weather />
 
         </Col>
       </Row>
@@ -128,8 +84,10 @@ const CountriesSingle = () => {
           </Button>
         </Col>
       </Row>
-    </Container>
+      <Row>
 
+      </Row>
+    </Container>
   )
 };
 
