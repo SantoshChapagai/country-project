@@ -33,7 +33,7 @@ const CountriesSingle = () => {
     <Container>
       <Row className="mt-5">
         <Col>
-          <Images />
+          {/* <Images /> */}
         </Col>
         <Col>
           <Weather />

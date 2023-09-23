@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Card, Col } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
+import { Card, Col } from 'react-bootstrap';
 
 const Weather = () => {
   const [weather, setWeather] = useState('');
@@ -31,27 +31,33 @@ const Weather = () => {
 
   console.log("Weather=", weather);
   return (
-    <Card>
-      {error && (
-        <p>Sorry, we do not have any informationa about this country.</p>
-      )}
-      {!error && weather && (
-        <>
-          <Col>
-            <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].description}`} />
-            {weather.weather[0].description}
-          </Col>
-          <Col>
-            <h4>{country.capital}, {country.name.common}</h4>
-          </Col>
-          <div>
-            <p>
-              <strong>{parseInt(weather.main.temp)}</strong> degrees
-            </p>
-          </div>
-        </>
-      )}
-    </Card>
+    <div>
+      <Card style={{ textAlign: "center", width: "25rem", padding: "1rem" }}>
+        {error && (
+          <Card.Title>Sorry, we do not have any informationa about this country.</Card.Title>
+        )}
+        {!error && weather && (
+          <>
+            <Col>
+              <h4> <strong>{country.capital}</strong>, {country.name.common}</h4>
+              <img src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={`${weather.weather[0].description}`} />
+              {weather.weather[0].description}
+            </Col>
+            <div>
+              <p>
+                Current Temperature:  <strong>{weather.main.temp}°C</strong>
+              </p>
+              <p>
+                Feels Like:  <strong>{weather.main.feels_like}°C</strong>
+              </p>
+              <p>
+                Today:  Min <strong>{weather.main.temp_min}°C</strong> and Max <strong>{weather.main.temp_max}°C</strong>
+              </p>
+            </div>
+          </>
+        )}
+      </Card>
+    </div>
   );
 };
 
