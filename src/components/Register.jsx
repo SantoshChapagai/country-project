@@ -28,17 +28,17 @@ const Register = () => {
 
   return (
     <div className='register'>
-      <div className='card'>
+      <div className='card-item'>
         <div>
-          <label for="name">Enter your name</label>
+          <label htmlFor="name">Enter your name</label>
           <input id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Full Name" />
         </div>
         <div>
-          <label for="email">Enter email address</label>
+          <label htmlFor="email">Enter email address</label>
           <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
         </div>
         <div>
-          <label for="password">Enter password</label>
+          <label htmlFor="password">Enter password</label>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" />
         </div>
         <div>

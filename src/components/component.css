@@ -1,4 +1,4 @@
-/* styling for the register component */
+/* styling for the register and login component */
 .register,
 .login {
   background: url("https://media.istockphoto.com/id/813402032/photo/internation-business-concept.webp?b=1&s=612x612&w=0&k=20&c=WA6McF5LVGCsG5-6BAiA2M_jL3sRkx19fBX5D3bdTO8=") no-repeat center center/cover;
@@ -9,7 +9,7 @@
   align-items: center;
 }
 
-.card {
+.card-item {
   text-align: center;
   height: 23rem;
   width: 20rem;
@@ -17,7 +17,7 @@
   background-color: lightblue;
 }
 
-.card div {
+.card-item div {
   display: flex;
   flex-direction: column;
 }
@@ -29,4 +29,8 @@ button {
 
 label {
   display: flex;
+}
+
+h6 {
+  margin-bottom: 2rem;
 }

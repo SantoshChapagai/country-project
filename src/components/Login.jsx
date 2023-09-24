@@ -4,11 +4,13 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, loginWithEmailAndPassword } from '../auth/firebase';
 
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, err] = useAuthState(auth);
   const navigate = useNavigate();
+
 
   useEffect(() => {
     if (loading) return;
@@ -18,13 +20,14 @@ const Login = () => {
 
   return (
     <div className='login'>
-      <div className='card'>
+      <div className='card-item'>
+        <div><h6>Login with email and password</h6></div>
         <div>
-          <label for="email">Enter email address</label>
+          <label htmlFor="email">Enter email address</label>
           <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
         </div>
         <div>
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" />
         </div>
         <div>
@@ -32,7 +35,7 @@ const Login = () => {
         </div>
         <div>
           Don't have an account
-          <Link to="register">Register</Link>
+          <Link to="/register">Register</Link>
         </div>
       </div>
     </div>

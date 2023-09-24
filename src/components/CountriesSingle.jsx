@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Weather from './CountrySingle/Weather';
 import Images from './CountrySingle/Images';
 
+
 const CountriesSingle = () => {
 
   //function hooks
@@ -50,7 +51,6 @@ const CountriesSingle = () => {
         </Col>
       </Row>
       <Row>
-
       </Row>
     </Container>
   );
