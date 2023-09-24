@@ -13,7 +13,7 @@ const Images = () => {
   const country = location.state.country;
 
   useEffect(() => {
-    const URL = `https://pixabay.com/api/?key=39594096-f60a72656a2ac7a3eb6216623&q=${country.name.common}&image_type=photo&per_page=5`;
+    const URL = `https://pixabay.com/api/?key=39594096-f60a72656a2ac7a3eb6216623&q=${country.name.common}&image_type=photo&per_page=8&min_height=4000`;
     axios.get(URL)
       .then((response) => {
         if (response.data.hits && response.data.hits.length > 0) {
@@ -25,7 +25,7 @@ const Images = () => {
         setError('Error in fetching data', error);
       });
   }, [country.name.common]);
-
+  console.log(images);
   return (
     <div>
       <Carousel>

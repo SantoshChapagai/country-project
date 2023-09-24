@@ -30,15 +30,18 @@ const CountriesSingle = () => {
     );
   }
   return (
+
     <Container>
       <Row className="mt-5">
         <Col>
-          {/* <Images /> */}
+          <Images />
         </Col>
         <Col>
           <Weather />
         </Col>
+
       </Row>
+
       <Row>
         <Col>
           <Button variant="light" onClick={() => navigate("/countries")}>
@@ -50,7 +53,7 @@ const CountriesSingle = () => {
 
       </Row>
     </Container>
-  )
+  );
 };
 
 export default CountriesSingle;
