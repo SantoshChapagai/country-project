@@ -17,13 +17,23 @@ const Login = () => {
   }, [user, loading, navigate]);
 
   return (
-    <div>
-      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" />
-      <Button onClick={() => loginWithEmailAndPassword(email, password)}>Login</Button>
-      <div>
-        Don't have an account
-        <Link to="register">Register</Link>
+    <div className='login'>
+      <div className='card'>
+        <div>
+          <label for="email">Enter email address</label>
+          <input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="password" />
+        </div>
+        <div>
+          <Button onClick={() => loginWithEmailAndPassword(email, password)}>Login</Button>
+        </div>
+        <div>
+          Don't have an account
+          <Link to="register">Register</Link>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,32 @@
+/* styling for the register component */
+.register,
+.login {
+  background: url("https://media.istockphoto.com/id/813402032/photo/internation-business-concept.webp?b=1&s=612x612&w=0&k=20&c=WA6McF5LVGCsG5-6BAiA2M_jL3sRkx19fBX5D3bdTO8=") no-repeat center center/cover;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  text-align: center;
+  height: 23rem;
+  width: 20rem;
+  padding: 2rem;
+  background-color: lightblue;
+}
+
+.card div {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+button {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: flex;
+}
