@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Weather from './CountrySingle/Weather';
 import Images from './CountrySingle/Images';
+import { useLocation } from 'react-router-dom';
 
 
 const CountriesSingle = () => {
@@ -11,6 +12,8 @@ const CountriesSingle = () => {
   //function hooks
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const country = location.state.country;
 
   //State hooks
 
@@ -51,6 +54,7 @@ const CountriesSingle = () => {
         </Col>
       </Row>
       <Row>
+        <img src={`https://source.unsplash.com/1600x900/?${country.name.common}`} alt={country.name.common} />
       </Row>
     </Container>
   );

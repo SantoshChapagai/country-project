@@ -35,6 +35,7 @@ const Images = () => {
               className="d-block w-100"
               src={image.webformatURL}
               alt={country.name.common}
+              style={{ height: "30rem" }}
             />
           </Carousel.Item>
         ))}
