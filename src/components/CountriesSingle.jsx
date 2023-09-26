@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Container, Row, Spinner, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import Weather from './CountrySingle/Weather';
 import Images from './CountrySingle/Images';
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+
+
 
 
 const CountriesSingle = () => {
@@ -14,10 +17,29 @@ const CountriesSingle = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const country = location.state.country;
+  const { single } = useParams();
 
   //State hooks
 
   const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const apiUrl = "https://restcountries.com/v3.1/";
+    async function findBorders(cca3) {
+      if (cca3.length > 0) {
+        try {
+          const response = await axios.get(`${apiUrl}alpha?codes=${cca3.join(",")}`);
+          setData(response.data);
+          setLoading(false);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          setLoading(false);
+        }
+      }
+    }
+    findBorders(country.borders);
+  }, [country.borders]);
 
   if (setLoading === loading) {
     return (
@@ -52,11 +74,23 @@ const CountriesSingle = () => {
             Back to countries
           </Button>
         </Col>
+        <Col>
+          <ul>
+            {data && data.map((country) => (
+              <li key={country.cca3}>
+                <Link to={`/countries/${country.name.common}`} alt={country.name.common}>
+                  {country.name.common}
+                </Link>
+
+              </li>
+            ))}
+          </ul>
+        </Col>
       </Row>
       <Row>
         <img src={`https://source.unsplash.com/1600x900/?${country.name.common}`} alt={country.name.common} />
       </Row>
-    </Container>
+    </Container >
   );
 };
 

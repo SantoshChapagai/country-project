@@ -13,7 +13,7 @@ const Images = () => {
   const country = location.state.country;
 
   useEffect(() => {
-    const URL = `https://pixabay.com/api/?key=39594096-f60a72656a2ac7a3eb6216623&q=${country.name.common}&image_type=photo&per_page=8&min_height=4000`;
+    const URL = `https://pixabay.com/api/?key=39594096-f60a72656a2ac7a3eb6216623&q=${country.name.common}&image_type=photo&category=nature&per_page=8&min_height=3000&max_height:5000`;
     axios.get(URL)
       .then((response) => {
         if (response.data.hits && response.data.hits.length > 0) {
@@ -35,7 +35,7 @@ const Images = () => {
               className="d-block w-100"
               src={image.webformatURL}
               alt={country.name.common}
-              style={{ height: "30rem" }}
+              style={{ height: "35rem" }}
             />
           </Carousel.Item>
         ))}
