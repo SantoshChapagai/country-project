@@ -1,35 +1,48 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-const Borders = (cac3) => {
+const Borders = () => {
+
+  const location = useLocation();
+  const country = location.state.country;
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
-  const location = useLocation();
-  const country = location.state.country;
-  console.log(country)
-  console.log(country.borders)
-  console.log(country.cca3);
-
   useEffect(() => {
-    async function findBorders() {
-      if (cac3.length > 0) {
-        const apiUrl = "https://restcountries.com/v3.1/"
-        const url = `${apiUrl}alpha?codes=${cac3.join(",")}`;
-        const response = await fetch(url);
-        const data = await response.json();
-        console.log(data);
-        setLoading(false);
-        setData(data)
-
+    const apiUrl = "https://restcountries.com/v3.1/";
+    async function findBorders(cca3) {
+      if (cca3.length > 0) {
+        try {
+          const response = await axios.get(`${apiUrl}alpha?codes=${cca3.join(",")}`);
+          setData(response.data);
+          setLoading(false);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          setLoading(false);
+        }
       }
     }
-  }, [cac3, country])
+    findBorders(country.borders);
+  }, [country.borders]);
+
+
+
 
   return (
     <div>
+      <ul>
+        {!loading && data.map((country) => (
+          <li key={country.cca3}>
+            <Link
+              to={`/countries/${country.name.common}`}
+              state={{ country: country }}
+            >{country.name.common}</Link>
+          </li>
+        ))}
+      </ul>
 
     </div>
   );

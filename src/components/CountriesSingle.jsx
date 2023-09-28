@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Col, Container, Row, Spinner, Button } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Weather from './CountrySingle/Weather';
 import Images from './CountrySingle/Images';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
-
-
-
-
+import Borders from './CountrySingle/Borders';
 
 const CountriesSingle = () => {
 
@@ -23,26 +19,7 @@ const CountriesSingle = () => {
   //State hooks
 
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const apiUrl = "https://restcountries.com/v3.1/";
-    async function findBorders(cca3) {
-      if (cca3.length > 0) {
-        try {
-          const response = await axios.get(`${apiUrl}alpha?codes=${cca3.join(",")}`);
-          setData(response.data);
-          setLoading(false);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-          setLoading(false);
-        }
-      }
-    }
-    findBorders(country.borders);
-  }, [country.borders]);
-
-  if (loading) {
+  if (setLoading === loading) {
     return (
       <Container>
         <Spinner
@@ -66,9 +43,7 @@ const CountriesSingle = () => {
         <Col>
           <Weather />
         </Col>
-
       </Row>
-
       <Row>
         <Col>
           <Button variant="light" onClick={() => navigate("/countries")}>
@@ -76,16 +51,7 @@ const CountriesSingle = () => {
           </Button>
         </Col>
         <Col>
-          <ul>
-            {!loading && data.map((country) => (
-              <li key={country.cca3}>
-                <Link
-                  to={`/countries/${country.name.common}`}
-                  state={{ country: country }}
-                >{country.name.common}</Link>
-              </li>
-            ))}
-          </ul>
+          <Borders />
         </Col>
       </Row>
       <Row>
