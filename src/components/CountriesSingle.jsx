@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { Col, Container, Row, Spinner, Button } from 'react-bootstrap';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Weather from './CountrySingle/Weather';
 import Images from './CountrySingle/Images';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+
 
 
 
@@ -17,7 +18,7 @@ const CountriesSingle = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const country = location.state.country;
-  const { single } = useParams();
+
 
   //State hooks
 
@@ -41,7 +42,7 @@ const CountriesSingle = () => {
     findBorders(country.borders);
   }, [country.borders]);
 
-  if (setLoading === loading) {
+  if (loading) {
     return (
       <Container>
         <Spinner
@@ -76,12 +77,12 @@ const CountriesSingle = () => {
         </Col>
         <Col>
           <ul>
-            {data && data.map((country) => (
+            {!loading && data.map((country) => (
               <li key={country.cca3}>
-                <Link to={`/countries/${country.name.common}`} alt={country.name.common}>
-                  {country.name.common}
-                </Link>
-
+                <Link
+                  to={`/countries/${country.name.common}`}
+                  state={{ country: country }}
+                >{country.name.common}</Link>
               </li>
             ))}
           </ul>
