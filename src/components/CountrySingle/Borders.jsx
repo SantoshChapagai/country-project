@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import "./countrySingle.css";
 
 const Borders = () => {
 
@@ -32,14 +33,17 @@ const Borders = () => {
 
 
   return (
-    <div>
+    <div className='border-container'>
+      <h4>Borders</h4>
       <ul>
         {!loading && data.map((country) => (
           <li key={country.cca3}>
-            <Link
-              to={`/countries/${country.name.common}`}
-              state={{ country: country }}
-            >{country.name.common}</Link>
+            <div className='link-container'>
+              <Link
+                to={`/countries/${country.name.common}`}
+                state={{ country: country }}
+              >{country.name.common}</Link>
+            </div>
           </li>
         ))}
       </ul>
