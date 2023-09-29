@@ -6,6 +6,8 @@ import Weather from './CountrySingle/Weather';
 import Images from './CountrySingle/Images';
 import { useLocation } from 'react-router-dom';
 import Borders from './CountrySingle/Borders';
+import CountryInfo from './CountrySingle/CountryInfo';
+
 
 const CountriesSingle = () => {
 
@@ -19,7 +21,8 @@ const CountriesSingle = () => {
   //State hooks
 
   const [loading, setLoading] = useState(true);
-  if (setLoading === loading) {
+
+  if (!loading) {
     return (
       <Container>
         <Spinner
@@ -36,12 +39,15 @@ const CountriesSingle = () => {
   return (
 
     <Container>
-      <Row className="mt-5">
-        <Col>
+      <Row className=" mt-5 ">
+        <Col >
           <Images />
         </Col>
         <Col>
           <Weather />
+        </Col>
+        <Col>
+          <CountryInfo />
         </Col>
       </Row>
       <Row>

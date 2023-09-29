@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 
+
 const Images = () => {
   const [error, setError] = useState(false);
   const [images, setImages] = useState([]);
@@ -13,7 +14,7 @@ const Images = () => {
   const country = location.state.country;
 
   useEffect(() => {
-    const URL = `https://pixabay.com/api/?key=39594096-f60a72656a2ac7a3eb6216623&q=${country.name.common}&image_type=photo&category=nature&per_page=8&min_height=3000&max_height:5000`;
+    const URL = `https://pixabay.com/api/?key=39594096-f60a72656a2ac7a3eb6216623&q=${country.name.common}&image_type=photo&per_page=8&min_height=3000`;
     axios.get(URL)
       .then((response) => {
         if (response.data.hits && response.data.hits.length > 0) {
@@ -27,7 +28,7 @@ const Images = () => {
   }, [country.name.common]);
   console.log(images);
   return (
-    <div>
+    <div className='image-container'>
       <Carousel>
         {images && images.map((image, id) => (
           <Carousel.Item key={id}>
