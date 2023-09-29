@@ -8,7 +8,17 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Button } from 'react-bootstrap';
 import { logout } from '../auth/firebase';
 
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../auth/firebase';
+import { useState } from 'react';
+
+
+
+
 const Layout = () => {
+
+  const [user] = useAuthState(auth);
+  const [loading, setLoading] = useState(false)
   return (
     <Container fluid>
       <Row>
@@ -31,7 +41,15 @@ const Layout = () => {
                 </LinkContainer>
               </Nav>
             </Navbar.Collapse>
-            <Button onClick={logout} to="/">Logout</Button>
+            {!user && loading ? (
+              <LinkContainer to="/login">
+                <Button>Login</Button>
+              </LinkContainer>
+
+            ) : (
+              <Button onClick={logout} to="/">Logout</Button>
+            )
+            }
           </Container>
         </Navbar>
       </Row>

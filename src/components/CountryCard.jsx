@@ -41,7 +41,7 @@ const CountryCard = ({ country }) => {
 
               <ListGroup.Item>
                 <i className="bi bi-people me-2"></i>
-                {country.population}
+                {(new Intl.NumberFormat('en-EN').format(country.population))}
               </ListGroup.Item>
             </ListGroup>
           </Card.Body>

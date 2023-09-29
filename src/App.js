@@ -14,9 +14,11 @@ import { auth } from './auth/firebase';
 
 const App = () => {
   const [user] = useAuthState(auth);
+
   return (
     <BrowserRouter>
       <Routes>
+
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -25,8 +27,11 @@ const App = () => {
           <Route element={<ProtectedRoute user={user} />}>
             <Route path="/countries" element={<Countries />} />
             <Route path="/countries/:single" element={<CountriesSingle />} />
+
           </Route>
         </Route>
+
+
       </Routes>
     </BrowserRouter>
   );

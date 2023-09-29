@@ -37,18 +37,25 @@ const CountriesSingle = () => {
     );
   }
   return (
-
-    <Container>
+    <Container >
       <Row className=" mt-5 ">
+        {/* <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+          <div style={{ width: "50rem", marginLeft: "0" }}> */}
         <Col >
           <Images />
         </Col>
+        {/* </div>
+          <div> */}
         <Col>
           <Weather />
         </Col>
+        {/* </div>
+          <div> */}
         <Col>
           <CountryInfo />
         </Col>
+        {/* </div>
+        </div> */}
       </Row>
       <Row>
         <Col>

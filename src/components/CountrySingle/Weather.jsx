@@ -28,16 +28,26 @@ const Weather = () => {
     }
 
   }, [country.capital]);
-  const sunriseTimeStamp = weather.sys.sunrise;
-  const sunriseDate = new Date(sunriseTimeStamp * 1000);
-  const sunriseHour = sunriseDate.getHours();
-  const sunriseMinutes = "0" + sunriseDate.getMinutes();
-  const sunriseTime = sunriseHour + ":" + sunriseMinutes.slice(0, 2);
-  const sunsetTimeStamp = weather.sys.sunset;
-  const sunsetDate = new Date(sunsetTimeStamp * 1000);
-  const sunsetHour = sunsetDate.getHours();
-  const sunsetMinutes = "0" + sunsetDate.getMinutes();
-  const sunsetTime = sunsetHour + ":" + sunsetMinutes.slice(0, 2);
+
+  // const sunrise = () => {
+  //   const sunriseTimeStamp = weather.sys.sunrise;
+  //   const sunriseDate = new Date(sunriseTimeStamp * 1000);
+  //   console.log(sunriseDate);
+  //   const sunriseHour = sunriseDate.getHours();
+  //   const sunriseMinutes = "0" + sunriseDate.getMinutes();
+  //   const sunriseTime = sunriseHour + ":" + sunriseMinutes.slice(0, 2);
+  //   return sunriseTime;
+  // }
+  // const sunset = () => {
+  //   const sunsetTimeStamp = weather.sys.sunset;
+  //   const sunsetDate = new Date(sunsetTimeStamp * 1000);
+  //   const sunsetHour = sunsetDate.getHours();
+  //   const sunsetMinutes = "0" + sunsetDate.getMinutes();
+  //   const sunsetTime = sunsetHour + ":" + sunsetMinutes.slice(0, 2);
+  //   return sunsetTime
+  // }
+
+
 
   console.log("Weather=", weather);
 
@@ -64,7 +74,7 @@ const Weather = () => {
               <p>
                 Today:  Min <strong>{weather.main.temp_min}°C</strong> and Max <strong>{weather.main.temp_max}°C</strong>
               </p>
-              <p>Sunrise: <strong>{sunriseTime}</strong> Sunset: <strong>{sunsetTime}</strong></p>
+              {/* <p>☀️ <strong>{sunrise()}</strong> 🌙 <strong><span>{sunset()}</span></strong></p> */}
               <p>Humidity <strong>{weather.main.humidity}</strong> and wind speed <strong>{weather.wind.speed}</strong></p>
 
             </div>
