@@ -28,21 +28,21 @@ const Images = () => {
   }, [country.name.common]);
   console.log(images);
   return (
-    <Card>
-      <Carousel>
-        {!loading && images && images.map((image, id) => (
-          <Carousel.Item key={id}>
-            <img
-              className="d-block w-100"
-              src={image.webformatURL}
-              alt={country.name.common}
-              style={{ height: "35rem" }}
-            />
-          </Carousel.Item>
-        ))}
-      </Carousel>
+    // <Card>
+    <Carousel>
+      {!loading && images && images.map((image, id) => (
+        <Carousel.Item key={id}>
+          <img
+            className="d-block w-100"
+            src={image.webformatURL}
+            alt={country.name.common}
+            style={{ height: "35rem" }}
+          />
+        </Carousel.Item>
+      ))}
+    </Carousel>
 
-    </Card>
+    // </Card>
   );
 };
 

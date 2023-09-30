@@ -10,7 +10,7 @@ export const favouriteSlice = createSlice({
     addFavourite: (state, action) => {
       if (state.favourites.some(fav => fav === action.payload)) state.favourites = [...state.favourites]
       state.favourites = [...state.favourites, action.payload]
-      localStorage.setItem("favourites", JSON.stringfy(state.favourites))
+      localStorage.setItem("favourites", JSON.stringify(state.favourites))
     },
     removeFavourite(state, action) {
       const newArray = [...state.favourites]
