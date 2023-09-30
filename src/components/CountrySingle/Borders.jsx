@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import { Card } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import "./countrySingle.css";
 
@@ -33,8 +34,8 @@ const Borders = () => {
 
 
   return (
-    <div className='border-container'>
-      <h4>Borders</h4>
+    <Card className='border-container'>
+      <h4 style={{ marginLeft: "2rem" }}>Borders</h4>
       <ul>
         {!loading && data.map((country) => (
           <li key={country.cca3}>
@@ -48,7 +49,7 @@ const Borders = () => {
         ))}
       </ul>
 
-    </div>
+    </Card>
   );
 };
 

@@ -1,8 +1,11 @@
 import React from 'react';
 import { Card, Col, ListGroup } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
 
 const CountryCard = ({ country }) => {
+
+  const favouritesList = useSelector((state) => state.favourites.favourites)
 
   return (
     <Col className="mt-5">
@@ -38,12 +41,15 @@ const CountryCard = ({ country }) => {
               ) : (
                 <ListGroup.Item>No currency data</ListGroup.Item>
               )}
-
               <ListGroup.Item>
                 <i className="bi bi-people me-2"></i>
                 {(new Intl.NumberFormat('en-EN').format(country.population))}
               </ListGroup.Item>
             </ListGroup>
+            <ListGroup.Item>
+              <i className='me-2'></i>
+              <h2 >🤍</h2>
+            </ListGroup.Item>
           </Card.Body>
         </Card>
       </LinkContainer>

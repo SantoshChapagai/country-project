@@ -33,6 +33,9 @@ const Layout = () => {
                 <LinkContainer to="/countries">
                   <Nav.Link>Countries</Nav.Link>
                 </LinkContainer>
+                <LinkContainer to="/favourites">
+                  <Nav.Link>Favourites</Nav.Link>
+                </LinkContainer>
                 <LinkContainer to="/login">
                   <Nav.Link>Login</Nav.Link>
                 </LinkContainer>
@@ -41,13 +44,14 @@ const Layout = () => {
                 </LinkContainer>
               </Nav>
             </Navbar.Collapse>
-            {!user && loading ? (
+            {user ? (
+              <Button onClick={logout} to="/">Logout</Button>
+
+
+            ) : (
               <LinkContainer to="/login">
                 <Button>Login</Button>
               </LinkContainer>
-
-            ) : (
-              <Button onClick={logout} to="/">Logout</Button>
             )
             }
           </Container>

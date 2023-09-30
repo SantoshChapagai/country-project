@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Card, Carousel } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 
 
@@ -28,9 +28,9 @@ const Images = () => {
   }, [country.name.common]);
   console.log(images);
   return (
-    <div className='image-container'>
+    <Card>
       <Carousel>
-        {images && images.map((image, id) => (
+        {!loading && images && images.map((image, id) => (
           <Carousel.Item key={id}>
             <img
               className="d-block w-100"
@@ -42,7 +42,7 @@ const Images = () => {
         ))}
       </Carousel>
 
-    </div>
+    </Card>
   );
 };
 
