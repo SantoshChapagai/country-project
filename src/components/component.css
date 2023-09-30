@@ -35,6 +35,16 @@ h6 {
   margin-bottom: 2rem;
 }
 
+.log-link a {
+  color: rgb(67, 48, 212);
+
+}
+
+.log-link a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
 /* styling home component */
 
 .hero-banner {

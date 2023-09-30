@@ -33,8 +33,8 @@ const Login = () => {
         <div>
           <Button onClick={() => loginWithEmailAndPassword(email, password)}>Login</Button>
         </div>
-        <div>
-          Don't have an account
+        <div className='log-link'>
+          Don't have an account?
           <Link to="/register">Register</Link>
         </div>
       </div>

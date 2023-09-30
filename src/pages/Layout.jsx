@@ -15,6 +15,7 @@ import { useState } from 'react';
 
 
 
+
 const Layout = () => {
 
   const [user] = useAuthState(auth);
@@ -53,11 +54,9 @@ const Layout = () => {
               </Nav>
             </Navbar.Collapse>
             {user ? (
-              <Button onClick={logout} to="/">Logout</Button>
-
-
+              <Button onClick={logout} to="/" style={{ height: "2rem", display: "flex", justifyContent: "center", alignItems: "center", position: "absolute", top: "0.5rem", right: "5rem" }}>Logout</Button>
             ) : (
-              <LinkContainer to="/login">
+              <LinkContainer to="/login" style={{ height: "2rem", display: "flex", justifyContent: "center", alignItems: "center", position: "absolute", top: "0.5rem", right: "5rem" }}>
                 <Button>Login</Button>
               </LinkContainer>
             )
