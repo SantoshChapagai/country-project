@@ -30,18 +30,26 @@ const Layout = () => {
                 <LinkContainer to="/">
                   <Nav.Link>Home</Nav.Link>
                 </LinkContainer>
-                <LinkContainer to="/countries">
-                  <Nav.Link>Countries</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/favourites">
-                  <Nav.Link>Favourites</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/login">
-                  <Nav.Link>Login</Nav.Link>
-                </LinkContainer>
-                <LinkContainer to="/register">
-                  <Nav.Link>Register</Nav.Link>
-                </LinkContainer>
+                {user ? (
+                  <>
+                    <LinkContainer to="/countries">
+                      <Nav.Link>Countries</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/favourites">
+                      <Nav.Link>Favourites</Nav.Link>
+                    </LinkContainer>
+                  </>
+                ) : (
+                  <>
+                    <LinkContainer to="/login">
+                      <Nav.Link>Login</Nav.Link>
+                    </LinkContainer>
+                    <LinkContainer to="/register">
+                      <Nav.Link>Register</Nav.Link>
+                    </LinkContainer>
+                  </>
+                )
+                }
               </Nav>
             </Navbar.Collapse>
             {user ? (

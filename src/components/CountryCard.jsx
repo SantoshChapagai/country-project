@@ -55,7 +55,7 @@ const CountryCard = ({ country }) => {
               )}
               <ListGroup.Item>
                 <i className="bi bi-people me-2"></i>
-                {(new Intl.NumberFormat('en-EN').format(country.population))}
+                {country.population.toLocaleString()}
               </ListGroup.Item>
             </ListGroup>
           </Card.Body>
