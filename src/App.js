@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Countries from './components/Countries';
 import CountriesSingle from './components/CountriesSingle';
@@ -12,33 +12,36 @@ import ProtectedRoute from './auth/ProtectedRoute';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './auth/firebase';
 import Favourites from './components/Favourites';
+import { useEffect } from 'react';
 
 const App = () => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
+  const [authLoaded, setAuthLoaded] = useState(false);
+
+  useEffect(() => {
+    if (user !== null || loading === false) {
+      setAuthLoaded(true);
+    }
+  }, [user, loading])
+
+  if (!authLoaded) {
+    return <div>Loading...</div>
+  }
 
   return (
     <BrowserRouter>
 
       <Routes>
         <Route path="/" element={<Layout />} >
-          {!user ? (
-            <>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </>
-          ) : (
-            <>
-              <Route element={<ProtectedRoute user={user} />}>
-                <Route path="/favourites" element={<Favourites />} />
-                <Route path="/countries" element={<Countries />} />
-                <Route path="/countries/:single" element={<CountriesSingle />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
-              </Route>
-
-            </>
-          )
-          }
+          <Route element={<ProtectedRoute user={user} />}>
+            <Route path="/favourites" element={<Favourites />} />
+            <Route path="/countries" element={<Countries />} />
+            <Route path="/countries/:single" element={<CountriesSingle />} />
+          </Route>
         </Route>
 
       </Routes>
