@@ -19,7 +19,7 @@ import { useState } from 'react';
 const Layout = () => {
 
   const [user] = useAuthState(auth);
-  const [loading, setLoading] = useState(false)
+
   return (
     <Container fluid>
       <Row>
@@ -54,9 +54,9 @@ const Layout = () => {
               </Nav>
             </Navbar.Collapse>
             {user ? (
-              <Button onClick={logout} to="/" style={{ height: "2rem", display: "flex", justifyContent: "center", alignItems: "center", position: "absolute", top: "0.5rem", right: "5rem" }}>Logout</Button>
+              <Button onClick={logout} to="/" style={{ height: "2rem", display: "flex", justifyContent: "center", alignItems: "center", position: "absolute", top: "0.5rem", right: "2rem" }}>Logout</Button>
             ) : (
-              <LinkContainer to="/login" style={{ height: "2rem", display: "flex", justifyContent: "center", alignItems: "center", position: "absolute", top: "0.5rem", right: "5rem" }}>
+              <LinkContainer to="/login" style={{ height: "2rem", display: "flex", justifyContent: "center", alignItems: "center", position: "absolute", top: "0.5rem", right: "2rem" }}>
                 <Button>Login</Button>
               </LinkContainer>
             )

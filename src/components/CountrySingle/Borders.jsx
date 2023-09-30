@@ -30,9 +30,6 @@ const Borders = () => {
     findBorders(country.borders);
   }, [country.borders]);
 
-
-
-
   return (
     <Card className='border-container'>
       <h4 style={{ marginLeft: "2rem" }}>Borders</h4>

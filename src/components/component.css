@@ -49,29 +49,5 @@ h6 {
 
 .hero-banner {
   background: url("https://cdn.pixabay.com/photo/2023/09/01/18/02/eyeglasses-8227429_640.jpg") no-repeat center center/cover;
-  height: 72.5vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.banner-link {
-  background-color: lightblue;
-  height: 3rem;
-  width: 12rem;
-  text-decoration: none;
-  margin-left: 15rem;
-  margin-top: 20rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  border-radius: 5px;
-}
-
-.banner-link:hover {
-  text-decoration: underline;
-  background-color: dodgerblue;
-  color: white;
+  height: 72vh;
 }

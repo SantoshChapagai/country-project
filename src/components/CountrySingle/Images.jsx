@@ -28,9 +28,8 @@ const Images = () => {
   }, [country.name.common]);
   console.log(images);
   return (
-    // <Card>
     <Carousel>
-      {!loading && images && images.map((image, id) => (
+      {images && images.map((image, id) => (
         <Carousel.Item key={id}>
           <img
             className="d-block w-100"
@@ -42,7 +41,6 @@ const Images = () => {
       ))}
     </Carousel>
 
-    // </Card>
   );
 };
 

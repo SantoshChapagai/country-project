@@ -58,7 +58,7 @@ const Favourites = () => {
     <Row xs={2} md={3} lg={4} className=" g-3">
       <Button onClick={() => {
         dispatch(clearFavourite())
-      }}>Clear Favourites</Button>
+      }} style={{ width: "10rem" }}>Clear Favourites</Button>
     </Row>
     <Row xs={2} md={3} lg={4} className=" g-3">
       {countriesList

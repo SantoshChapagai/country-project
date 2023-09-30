@@ -7,8 +7,8 @@ const CountryInfo = () => {
   const country = location.state.country;
   return (
     <Card >
-      <Card.Body className="d-flex flex-column">
-        <CardImg src={country.coatOfArms.svg} alt={country.capital} style={{ height: "25rem", width: "30rem" }} />
+      <Card.Body>
+        <CardImg src={country.coatOfArms.svg} alt={country.capital} />
         <Card.Title>{country.name.common}</Card.Title>
         <ListGroup>
           <ListGroup.Item>{country.region} ({country.subregion})</ListGroup.Item>

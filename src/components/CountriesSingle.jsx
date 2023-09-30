@@ -38,7 +38,7 @@ const CountriesSingle = () => {
   }
   return (
     <Container >
-      <Row className=" mt-5 ">
+      <Row className=" mt-5 flex-column flex-md-row">
         <Col >
           <Images />
         </Col>
