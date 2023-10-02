@@ -8,7 +8,7 @@ const CountryInfo = () => {
   return (
     <Card >
       <Card.Body>
-        <CardImg src={country.coatOfArms.svg} alt={country.capital} />
+        <CardImg src={country.coatOfArms.svg} alt={country.capital} style={{ height: "25rem" }} />
         <Card.Title>{country.name.common}</Card.Title>
         <ListGroup>
           <ListGroup.Item>{country.region} ({country.subregion})</ListGroup.Item>
