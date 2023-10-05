@@ -7,6 +7,6 @@
 
 
 ## Screen shots
-![](images/countries.jpeg)
-![](images/single.jpeg)
-![](images/favourites.jpeg)
+![](./public/images/countries.png)
+![](images/single.png)
+![](images/favourites.png)
