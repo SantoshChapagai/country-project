@@ -12,7 +12,6 @@ const Images = () => {
 
   const location = useLocation();
   const country = location.state.country;
-
   useEffect(() => {
     const URL = `https://pixabay.com/api/?key=39594096-f60a72656a2ac7a3eb6216623&q=${country.name.common}&image_type=photo&per_page=8&min_height=3000`;
     axios.get(URL)
@@ -26,7 +25,6 @@ const Images = () => {
         setError('Error in fetching data', error);
       });
   }, [country.name.common]);
-  console.log(images);
   return (
     <Carousel>
       {images && images.map((image, id) => (

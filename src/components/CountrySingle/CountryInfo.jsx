@@ -8,11 +8,10 @@ const CountryInfo = () => {
   return (
     <Card >
       <Card.Body>
-        <CardImg src={country.coatOfArms.svg} alt={country.capital} style={{ height: "25rem" }} />
+        <CardImg src={country.coatOfArms.svg} alt={country.capital} style={{ height: "28rem" }} />
         <Card.Title>{country.name.common}</Card.Title>
         <ListGroup>
           <ListGroup.Item>{country.region} ({country.subregion})</ListGroup.Item>
-          <ListGroup.Item>{country.landlocked === true ? 'Landlocked' : 'Not Landlocked'}</ListGroup.Item>
           <ListGroup.Item>{country.independent === true ? 'Independent' : 'Not Independent'}, {country.unMember === true ? 'Member of United Nations' : 'Not a Member of United Nations'}</ListGroup.Item>
         </ListGroup>
 

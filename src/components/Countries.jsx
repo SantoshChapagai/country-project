@@ -19,7 +19,7 @@ const Countries = () => {
   // const filteredCountries = countriesList.filter((country) =>
   //   country.name.common.toLowerCase().includes(search.toLowerCase())
   // );
-  console.log("countriesList: ", countriesList);
+  ("countriesList: ", countriesList);
 
   useEffect(() => {
     dispatch(initializeCountries())
