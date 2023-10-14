@@ -7,9 +7,11 @@ import Images from './CountrySingle/Images';
 import { useLocation } from 'react-router-dom';
 import Borders from './CountrySingle/Borders';
 import CountryInfo from './CountrySingle/CountryInfo';
+import { useEffect } from 'react';
 
 
 const CountriesSingle = () => {
+  const [map, setMap] = useState("")
 
   //function hooks
 
@@ -19,6 +21,14 @@ const CountriesSingle = () => {
 
 
   //State hooks
+
+  useEffect(()=>{
+    if(!country.maps.googleMaps){
+      return "No information about this country";
+    }else{
+      setMap(country.maps.googleMaps);
+    }
+  }, [country])
 
   const [loading, setLoading] = useState(true);
 
@@ -62,6 +72,11 @@ const CountriesSingle = () => {
       </Row>
       <Row>
         <img src={`https://source.unsplash.com/1600x900/?${country.name.common}`} alt={country.name.common} />
+        {map &&
+        (<img src={map} alt={country.name.common}/>)
+        }
+        <a href={country.maps.googleMaps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', width: '200px', height: '200px', background: `url(${country.maps.googleMaps}) no-repeat center center / cover`, textDecoration: 'none' }}>
+      </a>
       </Row>
     </Container >
   );

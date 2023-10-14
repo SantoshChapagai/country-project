@@ -28,6 +28,8 @@ const Weather = () => {
     }
 
   }, [country.capital]);
+  console.log(weather)
+
 
   return (
 
