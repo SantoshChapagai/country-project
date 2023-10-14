@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Container, Row, Spinner, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import Weather from './CountrySingle/Weather';
 import Images from './CountrySingle/Images';
 import { useLocation } from 'react-router-dom';

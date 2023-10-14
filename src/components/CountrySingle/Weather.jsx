@@ -35,7 +35,7 @@ const Weather = () => {
       {error && (
         <Card.Title>Sorry, we do not have any informationa about this country.</Card.Title>
       )}
-      {!error && weather && (
+      {!error && !loading && weather && (
         <>
           <Col>
             <h4> <strong>{country.capital}</strong>, {country.name.common}</h4>

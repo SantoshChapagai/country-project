@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Card, Carousel } from 'react-bootstrap';
+import { Carousel } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 
 
@@ -27,7 +27,7 @@ const Images = () => {
   }, [country.name.common]);
   return (
     <Carousel>
-      {images && images.map((image, id) => (
+      {!loading && !error && images.map((image, id) => (
         <Carousel.Item key={id}>
           <img
             className="d-block w-100"

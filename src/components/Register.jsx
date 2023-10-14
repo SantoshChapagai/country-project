@@ -1,9 +1,7 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, registerWithEmailAndPassword } from "../auth/firebase";
-import { useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import "./component.css";
 
@@ -12,7 +10,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [user, loading, err] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
   const register = () => {

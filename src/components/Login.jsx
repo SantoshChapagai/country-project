@@ -9,7 +9,7 @@ import "./component.css"
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, loading, err] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
 

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -14,12 +13,6 @@ const Countries = () => {
   const loading = useSelector((state) => state.countries.isLoading);
 
   const [search, setSearch] = useState('')
-
-
-  // const filteredCountries = countriesList.filter((country) =>
-  //   country.name.common.toLowerCase().includes(search.toLowerCase())
-  // );
-  ("countriesList: ", countriesList);
 
   useEffect(() => {
     dispatch(initializeCountries())
@@ -43,15 +36,6 @@ const Countries = () => {
         </Col>
       </Row>
       <Row xs={2} md={3} lg={4} className=" g-3">
-        {/* {search ? (
-          filteredCountries.map((country) => {
-            return <CountryCard country={country} key={country.name.common} />
-          })
-        ) : (
-          countriesList.map((country) => {
-            return <CountryCard country={country} key={country.name.common} />
-          })
-        )} */}
         {countriesList.filter((c) => {
 
           return c.name.official.toLowerCase().includes(search.toLowerCase());
