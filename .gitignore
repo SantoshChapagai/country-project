@@ -1,4 +1,4 @@
 node_modules
 DS_Store
 .env
-src/auth/firebase.js
+/src/auth/firebase.js
