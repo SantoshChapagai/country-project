@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Countries from './components/Countries';
 import CountriesSingle from './components/CountriesSingle';
@@ -12,7 +12,7 @@ import ProtectedRoute from './auth/ProtectedRoute';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './auth/firebase';
 import Favourites from './components/Favourites';
-import { useEffect } from 'react';
+
 
 const App = () => {
   const [user, loading] = useAuthState(auth);
