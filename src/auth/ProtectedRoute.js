@@ -9,8 +9,12 @@ const ProtectedRoute = ({ user }) => {
   return <Outlet />
 };
 
-ProtectedRoute.prototypes = {
-  user: PropTypes.object,
+ProtectedRoute.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  }),
 };
 
 export default ProtectedRoute;
