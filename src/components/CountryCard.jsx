@@ -3,6 +3,7 @@ import { Card, Col, ListGroup } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
 import { addFavourite, removeFavourite } from "../features/countries/favouritesSlice";
+import PropTypes from 'prop-types';
 
 const CountryCard = ({ country }) => {
 
@@ -64,6 +65,20 @@ const CountryCard = ({ country }) => {
 
     </Col >
   );
+};
+CountryCard.propTypes = {
+  country: PropTypes.shape({
+    name: PropTypes.shape({
+      common: PropTypes.string, 
+      official: PropTypes.string, 
+    }),
+    languages: PropTypes.object, 
+    currencies: PropTypes.object, 
+    population: PropTypes.number, 
+    flags: PropTypes.shape({
+      svg: PropTypes.string, 
+    }),
+  }),
 };
 
 export default CountryCard;
