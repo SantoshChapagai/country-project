@@ -1,5 +1,9 @@
 # Country Application
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=SantoshChapagai_country-project&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=SantoshChapagai_country-project)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=SantoshChapagai_country-project&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=SantoshChapagai_country-project)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=SantoshChapagai_country-project&metric=bugs)](https://sonarcloud.io/summary/new_code?id=SantoshChapagai_country-project)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=SantoshChapagai_country-project&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=SantoshChapagai_country-project)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=SantoshChapagai_country-project&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=SantoshChapagai_country-project)
 - App that use the rest country api and display the basic information of that country. The open weather api is used to show the basic information of individual country capital. Moreover, the pixaby api is used to display some images of an individual country in carousel. The app has google fire base for user auntentication. User also have an opportunity to add the country they like in a favourite list.
 
 ## Technologies stack
