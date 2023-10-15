@@ -27,8 +27,8 @@ const Images = () => {
   }, [country.name.common]);
   return (
     <Carousel>
-      {!loading && !error && images.map((image, id) => (
-        <Carousel.Item key={id}>
+      {!loading && !error && images.map((image) => (
+        <Carousel.Item key={image.id}>
           <img
             className="d-block w-100"
             src={image.webformatURL}
