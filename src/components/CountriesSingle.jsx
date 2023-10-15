@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Col, Container, Row, Spinner, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Weather from './CountrySingle/Weather';
 import Images from './CountrySingle/Images';
-import { useLocation } from 'react-router-dom';
 import Borders from './CountrySingle/Borders';
 import CountryInfo from './CountrySingle/CountryInfo';
 
@@ -21,7 +20,7 @@ const CountriesSingle = () => {
 
   const [loading, setLoading] = useState(true);
 
-  if (!loading) {
+  if (loading === setLoading) {
     return (
       <Container>
         <Spinner
