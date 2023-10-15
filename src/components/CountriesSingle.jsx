@@ -7,6 +7,7 @@ import Borders from './CountrySingle/Borders';
 import CountryInfo from './CountrySingle/CountryInfo';
 
 
+
 const CountriesSingle = () => {
 
 
@@ -49,14 +50,13 @@ const CountriesSingle = () => {
         </Col>
       </Row>
       <Row>
-        <Col style={{display:"flex", justifyContent:"space-between"}}>
+        <Col style={{display:"flex", justifyContent:"space-between", marginTop:"1rem"}}>
           <Button variant="light" onClick={() => navigate("/countries")}>
             Back to countries
           </Button>
-          <div>
-          <a style={{backgroundColor:"lightGray"}} href={country.maps.googleMaps} alt={country.name.common} target="_blank" rel="noreferrer">Google Map</a>
+          <div style={{marginTop:"0.5rem"}}>
+          <a style={{backgroundColor:"lightGray", marginLeft:"2rem", marginTop:"1rem"}} href={country.maps.googleMaps} alt={country.name.common} target="_blank" rel="noreferrer">Google</a>
           </div>
-          
         </Col>
         <Col>
 

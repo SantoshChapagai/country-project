@@ -21,17 +21,19 @@ const Borders = () => {
           setData(response.data);
           setLoading(false);
         } catch (error) {
-          console.error("Error fetching data:", error);
+          alert ("Error fetching data:", error);
           setLoading(false);
         }
       }
     }
     findBorders(country.borders);
   }, [country.borders]);
-
   return (
     <Card className='border-container'>
       <h4 style={{ marginLeft: "2rem" }}>Borders</h4>
+      { data.length < 1 ? (
+        <p>No border information about this country, probably it's an island</p>
+      ):(
       <ul>
         {!loading && data.map((country) => (
           <li key={country.cca3}>
@@ -44,7 +46,7 @@ const Borders = () => {
           </li>
         ))}
       </ul>
-
+      )}
     </Card>
   );
 };
