@@ -7,7 +7,7 @@
 - App that use the rest country api and display the basic information of that country. The open weather api is used to show the basic information of individual country capital. Moreover, the pixaby api is used to display some images of an individual country in carousel. The app has google fire base for user auntentication. User also have an opportunity to add the country they like in a favourite list.
 
 ## Technologies stack
-- Build with:
+Build with:
 - React, CSS, Bootstrap, Google firebase
 
 ## Run in your local machine
