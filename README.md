@@ -16,7 +16,7 @@ git clone https://github.com/SantoshChapagai/country-project.git
 npm install
 npm start
 ```
-- You need a api key for weather and images to run the application properly.
+- You need a api key for weather and images to run the application properly. You also need a google firebase for the authentication.
 
 ## Screen shots
 ![](./public/images/countries.png)
