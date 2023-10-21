@@ -63,7 +63,7 @@ const CountriesSingle = () => {
         </Col>
       </Row>
       <Row>
-        <img src={`https://source.unsplash.com/1600x900/?${country.name.common}`} alt={country.name.common} />
+        <img src={`https://source.unsplash.com/1600x400/?${country.name.common}`} alt={country.name.common} />
       </Row>
     </Container >
   );

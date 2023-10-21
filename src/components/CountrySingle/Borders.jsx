@@ -32,7 +32,7 @@ const Borders = () => {
     <Card className='border-container'>
       <h4 style={{ marginLeft: "2rem" }}>Borders</h4>
       { data.length < 1 ? (
-        <p>No border information about this country, probably it's an island</p>
+        <p style={{marginLeft:"1rem"}}>No border information about this country</p>
       ):(
       <ul>
         {!loading && data.map((country) => (
