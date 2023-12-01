@@ -14,15 +14,18 @@ const CountryCard = ({ country }) => {
     <Col className="mt-5">
 
       <Card className="h-100">
-        {favouritesList?.includes(country.name.common) ? (
-          <i
-            className="bi bi-heart-fill text-danger m-1 p-1"
-            onClick={() => dispatch(removeFavourite(country.name.common))}></i>
-        ) : (
-          <i
-            className="bi bi-heart text-danger m-1 p-1"
-            onClick={() => dispatch(addFavourite(country.name.common))}></i>
-        )}
+      <i
+          className={`bi ${
+            favouritesList?.includes(country.name.common)
+              ? 'bi-heart-fill'
+              : 'bi-heart'
+          } text-danger m-1 p-1`}
+          onClick={() =>
+            favouritesList?.includes(country.name.common)
+              ? dispatch(removeFavourite(country.name.common))
+              : dispatch(addFavourite(country.name.common))
+          }
+        ></i>
         <LinkContainer
           to={`/countries/${country.name.common}`}
           state={{ country: country }}
