@@ -5,7 +5,7 @@ import Weather from './CountrySingle/Weather';
 import Images from './CountrySingle/Images';
 import Borders from './CountrySingle/Borders';
 import CountryInfo from './CountrySingle/CountryInfo';
-import Map from './CountrySingle/Map';
+import CountryMap from './CountrySingle/CountryMap';
 
 
 
@@ -60,11 +60,10 @@ const CountriesSingle = () => {
           </div>
         </Col>
         <Col>
-
         </Col>
       </Row>
       <Row>
-      <Map />
+      <CountryMap />
       </Row>
      
     </Container >
