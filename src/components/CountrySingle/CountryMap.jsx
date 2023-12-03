@@ -6,7 +6,7 @@ import {
   MarkerF,
 } from '@react-google-maps/api';
 
-export default function Map() {
+export default function CountryMap() {
   const location = useLocation();
   const country = location.state.country;
   
@@ -38,12 +38,12 @@ export default function Map() {
         zoom={4}
         center={mapCenter}
         mapContainerStyle={{ width: '100%', height: '400px' }}
-        onLoad={(map) => alert('Map Loaded', map)}
+        onLoad={() => ('Map Loaded')}
       >
         {country.capitalInfo && (
         <MarkerF
           position={{lat: country.capitalInfo.latlng[0], lng:country.capitalInfo.latlng[1]}}
-          onLoad={() => alert('Marker Loaded')}
+          onLoad={() => ('Marker Loaded')}
         />
         
         )}

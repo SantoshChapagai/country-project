@@ -28,6 +28,7 @@ npm start
 Rest country api https://restcountries.com/v3.1/all
 Open weather api access with key https://openweathermap.org/
 Pixaby api access with key https://pixabay.com/api/docs/
+google map api access with key https://developers.google.com/maps/documentation/javascript/get-api-key
 ```
 
 ### About
@@ -61,6 +62,7 @@ Pixaby api access with key https://pixabay.com/api/docs/
 - Border of each country are listed in the card
 - Clicking in the country displayed in border takes user to that particular country.
 - More information of the country is displayed in the bootstrap card along with country code of arms.
+- Google map shows the country and its neighbours. The marker is placed where the capital of the country is located.
 
 ### Favourites
 - Page that list the all the favourites added by user
