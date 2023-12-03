@@ -5,6 +5,7 @@ import Weather from './CountrySingle/Weather';
 import Images from './CountrySingle/Images';
 import Borders from './CountrySingle/Borders';
 import CountryInfo from './CountrySingle/CountryInfo';
+import Map from './CountrySingle/Map';
 
 
 
@@ -63,8 +64,9 @@ const CountriesSingle = () => {
         </Col>
       </Row>
       <Row>
-        <img src={`https://source.unsplash.com/1600x400/?${country.name.common}`} alt={country.name.common} />
+      <Map />
       </Row>
+     
     </Container >
   );
 };
