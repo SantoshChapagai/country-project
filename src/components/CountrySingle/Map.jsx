@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo} from 'react'
 import { useLocation } from 'react-router-dom';
 import {
   useLoadScript,
@@ -9,6 +9,7 @@ import {
 export default function Map() {
   const location = useLocation();
   const country = location.state.country;
+  
   
   const libraries = useMemo(() => ['places'], []);
   const mapCenter = useMemo(() => ({ lat: country.latlng[0], lng: country.latlng[1] }), [country.latlng]);
@@ -30,22 +31,23 @@ export default function Map() {
   if (!isLoaded) {
     return <p>Loading...</p>;
   }
-
-  console.log(country);
-  console.log(country.latlng[0])
   return (
     <div>
        <GoogleMap
         options={mapOptions}
-        zoom={6}
+        zoom={4}
         center={mapCenter}
         mapContainerStyle={{ width: '100%', height: '400px' }}
-        onLoad={(map) => console.log('Map Loaded')}
+        onLoad={(map) => alert('Map Loaded', map)}
       >
+        {country.capitalInfo && (
         <MarkerF
-          position={mapCenter}
-          onLoad={() => console.log('Marker Loaded')}
+          position={{lat: country.capitalInfo.latlng[0], lng:country.capitalInfo.latlng[1]}}
+          onLoad={() => alert('Marker Loaded')}
         />
+        
+        )}
+        {country.capital}
          </GoogleMap>
     </div>
   )
