@@ -12,8 +12,9 @@ const Images = () => {
 
   const location = useLocation();
   const country = location.state.country;
+  const countryImages = process.env.REACT_APP_PIXABY_KEY;
   useEffect(() => {
-    const URL = `https://pixabay.com/api/?key=39594096-f60a72656a2ac7a3eb6216623&q=${country.name.common}&image_type=photo&per_page=8&min_height=3000`;
+    const URL = `https://pixabay.com/api/?key=${countryImages}&q=${country.name.common}&image_type=photo&per_page=8&min_height=3000`;
     axios.get(URL)
       .then((response) => {
         if (response.data.hits && response.data.hits.length > 0) {
